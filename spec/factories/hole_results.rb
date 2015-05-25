@@ -15,9 +15,9 @@
 FactoryGirl.define do
   factory :hole_result do
     hole_id 1
-competition_id 1
-swing_team_score 1
-regular_team_score 1
+    competition
+    swing_team_score 0
+    regular_team_score 0
   end
 
 end

@@ -17,4 +17,7 @@ class HoleResult < ActiveRecord::Base
   belongs_to :competition
 
   belongs_to :winning_team, class: Team
+
+  delegate :swing_team, to: :competition
+  delegate :regular_team, to: :competition
 end

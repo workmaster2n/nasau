@@ -9,7 +9,10 @@
 #
 
 FactoryGirl.define do
-  factory :team do
+  factory :team, aliases: [:regular_team] do
+    factory :swing_team do
+      swing_team true
+    end
   end
 
 end

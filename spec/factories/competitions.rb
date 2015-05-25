@@ -11,8 +11,8 @@
 
 FactoryGirl.define do
   factory :competition do
-    swing_team_id 1
-regular_team_id 1
+    swing_team
+    regular_team
   end
 
 end
