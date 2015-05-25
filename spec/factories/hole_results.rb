@@ -9,6 +9,7 @@
 #  regular_team_score :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  winning_team_id    :integer
 #
 
 FactoryGirl.define do

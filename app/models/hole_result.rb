@@ -9,10 +9,12 @@
 #  regular_team_score :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  winning_team_id    :integer
 #
 
 class HoleResult < ActiveRecord::Base
   belongs_to :hole
   belongs_to :competition
 
+  belongs_to :winning_team, class: Team
 end

@@ -11,7 +11,7 @@
 
 class Competitor < ActiveRecord::Base
   belongs_to :golfer
-  belings_to :game
+  belongs_to :game
 
   has_many :scores
 end
