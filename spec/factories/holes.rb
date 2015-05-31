@@ -12,7 +12,7 @@
 FactoryGirl.define do
   factory :hole do
     number 1
-course_id 1
+    course
   end
 
 end

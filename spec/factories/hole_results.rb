@@ -14,10 +14,14 @@
 
 FactoryGirl.define do
   factory :hole_result do
-    hole_id 1
+    hole
     competition
     swing_team_score 0
     regular_team_score 0
+
+    after(:create) do |hole_result|
+      hole_result.competition.course.holes << hole_result.hole
+    end
   end
 
 end
