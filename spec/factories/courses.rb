@@ -11,6 +11,12 @@
 FactoryGirl.define do
   factory :course do
     name "MyString"
+
+    after(:create) do |course|
+      (1..18).each do |number|
+        course.holes.create(number: number)
+      end
+    end
   end
 
 end

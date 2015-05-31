@@ -21,7 +21,17 @@ class HoleResult < ActiveRecord::Base
   delegate :swing_team, to: :competition
   delegate :regular_team, to: :competition
 
-  def calculate_winner
+  def set_score(number)
+    swing_team_score = number
+  end
 
+  def calculate_winner
+    self.swing_team_score = swing_team.score_for_hole(hole.number)
+    self.regular_team_score = regular_team.score_for_hole(hole.number)
+    if self.swing_team_score && self.regular_team_score
+      self.winning_team = swing_team if swing_team_score < regular_team_score
+      self.winning_team = regular_team if regular_team_score < swing_team_score
+    end
+    self.save
   end
 end

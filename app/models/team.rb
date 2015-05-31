@@ -11,4 +11,11 @@
 class Team < ActiveRecord::Base
   has_many :competitions
   has_many :competitors
+
+  def score_for_hole(hole_number)
+    scores = competitors.map do |competitor|
+      competitor.strokes_for_hole(hole_number)
+    end
+    scores.min
+  end
 end

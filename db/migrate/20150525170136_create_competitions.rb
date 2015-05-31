@@ -3,6 +3,7 @@ class CreateCompetitions < ActiveRecord::Migration
     create_table :competitions do |t|
       t.integer :swing_team_id
       t.integer :regular_team_id
+      t.integer :game_id
 
       t.timestamps null: false
     end

@@ -15,4 +15,12 @@ RSpec.describe Team, type: :model do
   it 'knows about its competitors' do
     expect(team.competitors.size).to be > 0
   end
+
+  it 'knows its score for a hole' do
+    hole = create(:hole)
+    team.competitors.each do |competitor|
+      competitor.set_score_for_hole(hole.number, 2)
+    end
+    expect(team.score_for_hole(hole.number)).to eq(2)
+  end
 end

@@ -20,7 +20,7 @@ FactoryGirl.define do
     regular_team_score 0
 
     after(:create) do |hole_result|
-      hole_result.competition.course.holes << hole_result.hole
+      hole_result.competition.game.course.holes << hole_result.hole
     end
   end
 

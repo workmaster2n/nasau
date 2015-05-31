@@ -29,6 +29,6 @@ class Competitor < ActiveRecord::Base
   end
 
   def strokes_for_hole(hole_number)
-    scores.score_for_hole_number(hole_number).strokes
+    scores.score_for_hole_number(hole_number).try(:strokes)
   end
 end
