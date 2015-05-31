@@ -2,6 +2,7 @@ Golf
 ================
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+[ ![Codeship Status for workmaster2n/nasau](https://codeship.com/projects/79781dd0-ea01-0132-b672-32dfa18a9fce/status?branch=master)](https://codeship.com/projects/83030)
 
 This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
 provided by the [RailsApps Project](http://railsapps.github.io/).
