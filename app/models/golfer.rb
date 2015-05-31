@@ -1,13 +1,12 @@
 # == Schema Information
 #
-# Table name: courses
+# Table name: golfers
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  name       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Course < ActiveRecord::Base
-  has_many :holes
+class Golfer < ActiveRecord::Base
 end

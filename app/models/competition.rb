@@ -12,4 +12,5 @@
 class Competition < ActiveRecord::Base
   belongs_to :swing_team, class_name: Team
   belongs_to :regular_team, class_name: Team
+
 end

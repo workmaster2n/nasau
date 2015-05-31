@@ -15,4 +15,8 @@ class Score < ActiveRecord::Base
   belongs_to :competitor
 
   delegate :number, to: :hole
+
+  def self.score_for_hole_number(hole_number)
+    joins{ hole }.where{hole.number == hole_number}.first
+  end
 end

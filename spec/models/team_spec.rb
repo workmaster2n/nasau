@@ -11,5 +11,8 @@
 require 'rails_helper'
 
 RSpec.describe Team, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:team) {create(:team)}
+  it 'knows about its competitors' do
+    expect(team.competitors.size).to be > 0
+  end
 end

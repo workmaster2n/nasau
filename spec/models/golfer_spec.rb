@@ -1,13 +1,15 @@
 # == Schema Information
 #
-# Table name: courses
+# Table name: golfers
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  name       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Course < ActiveRecord::Base
-  has_many :holes
+require 'rails_helper'
+
+RSpec.describe Golfer, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

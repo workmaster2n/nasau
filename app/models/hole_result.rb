@@ -20,4 +20,8 @@ class HoleResult < ActiveRecord::Base
 
   delegate :swing_team, to: :competition
   delegate :regular_team, to: :competition
+
+  def calculate_winner
+
+  end
 end

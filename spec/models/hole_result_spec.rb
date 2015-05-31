@@ -15,8 +15,9 @@
 require 'rails_helper'
 
 RSpec.describe HoleResult, type: :model do
+  let(:hole_result) {create(:hole_result)}
+
   describe 'knows teams' do
-    let(:hole_result) {create(:hole_result)}
     it 'knows swing team' do
       expect(hole_result.swing_team).to_not be_nil
     end
@@ -24,17 +25,29 @@ RSpec.describe HoleResult, type: :model do
       expect(hole_result.regular_team).to_not be_nil
     end
   end
-  describe 'calculate' do
+  describe 'calculate_winner' do
     describe 'first hole' do
-      let(:first_hole_result) {create(:hole_result)}
       describe 'tie' do
         it 'winning team is nil' do
-          expect(first_hole_result.winning_team).to be_nil
+          hole_result.calculate_winner
+          expect(hole_result.winning_team).to be_nil
         end
       end
       describe 'swing team wins' do
         it 'winning team is swing team' do
-          expect(first_hole_result.winning_team).to eq(first_hole_result.swing_team)
+
+          # Set swing_team scores as 1
+          hole_result.swing_team.competitors.each do |competitor|
+            competitor.set_score_for_hole(1,1)
+          end
+
+          # Set regualr_team scores as 2
+          hole_result.regular_team.competitors.each do |competitor|
+            competitor.set_score_for_hole(1,2)
+          end
+
+          hole_result.calculate_winner
+          expect(hole_result.winning_team).to eq(hole_result.swing_team)
         end
       end
     end

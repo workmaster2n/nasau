@@ -17,4 +17,9 @@ RSpec.describe Score, type: :model do
   it 'knows hole number' do
     expect(score.number).to_not be_nil
   end
+  describe 'score_for_hole_number' do
+    it 'can get score for hole number via sql' do
+      expect(Score.score_for_hole_number(score.number)).to_not be_nil
+    end
+  end
 end

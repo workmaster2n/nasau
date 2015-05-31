@@ -1,13 +1,15 @@
 # == Schema Information
 #
-# Table name: courses
+# Table name: games
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  played_on  :date
+#  course_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Course < ActiveRecord::Base
-  has_many :holes
+class Game < ActiveRecord::Base
+  belongs_to :course
+  validates_presence_of :course
 end

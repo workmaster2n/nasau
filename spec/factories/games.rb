@@ -1,13 +1,18 @@
 # == Schema Information
 #
-# Table name: courses
+# Table name: games
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  played_on  :date
+#  course_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Course < ActiveRecord::Base
-  has_many :holes
+FactoryGirl.define do
+  factory :game do
+    played_on "2015-05-31"
+    course
+  end
+
 end
