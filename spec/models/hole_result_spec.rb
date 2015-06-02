@@ -50,6 +50,23 @@ RSpec.describe HoleResult, type: :model do
           expect(hole_result.winning_team).to eq(hole_result.swing_team)
         end
       end
+      describe 'regular team wins' do
+        it 'winning team is swing team' do
+          # Set swing_team scores as 2
+          hole_result.swing_team.competitors.each do |competitor|
+            competitor.set_score_for_hole(1,2)
+          end
+
+          # Set regualr_team scores as 1
+          hole_result.regular_team.competitors.each do |competitor|
+            competitor.set_score_for_hole(1,1)
+          end
+
+          hole_result.calculate_winner
+          # hole_result.set_score(3)
+          expect(hole_result.winning_team).to eq(hole_result.regular_team)
+        end
+      end
     end
   end
 end
